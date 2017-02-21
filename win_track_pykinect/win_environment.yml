@@ -1,0 +1,22 @@
+name: mocap
+dependencies:
+- https://conda.binstar.org/mwcraig::boost-vpython=1.55.0=0
+- https://conda.binstar.org/mwcraig::fonttools=2.4=np19py27_0
+- https://conda.binstar.org/mwcraig::polygon2=2.0.6=np19py27_0
+- https://conda.binstar.org/mwcraig::ttfquery=1.0.5=py27_0
+- https://conda.binstar.org/mwcraig::vpython=6.11.0=np19py27_0
+- mkl=11.3.3=1
+- numpy=1.9.3=py27_3
+- pip=9.0.1=py27_1
+- python=2.7.13=0
+- setuptools=27.2.0=py27_1
+- vs2008_runtime=9.00.30729.5054=0
+- wheel=0.29.0=py27_0
+- wxpython=3.0=py27_0
+- pip:
+  - fonttools==2.4
+  - polygon2==2.0.6
+  - pykinect==1.0
+  - ttfquery==1.0.5
+prefix: C:\Users\Collumbuss\Anaconda3\envs\mocap
+
