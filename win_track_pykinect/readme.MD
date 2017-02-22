@@ -23,7 +23,7 @@ For more information of this methods check ["Possibly Wrong"](https://possiblywr
 
 ## <a name="fetch-build"></a>Specifies the various skeleton joints.
 
-    C:\>skeleton.joints = [
+    >>>skeleton.joints = [
     HipCenter = 0,
     Spine = 1,
     ShoulderCenter = 2,
