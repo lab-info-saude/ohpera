@@ -1,0 +1,108 @@
+name: mlearning
+channels: !!python/tuple
+- !!python/unicode 'defaults'
+dependencies:
+- appnope=0.1.0=py27_0
+- backports=1.0=py27_0
+- backports_abc=0.4=py27_0
+- beautifulsoup4=4.5.3=py27_0
+- configparser=3.5.0=py27_0
+- cycler=0.10.0=py27_0
+- dateutil=2.4.1=py27_0
+- decorator=4.0.10=py27_0
+- entrypoints=0.2.2=py27_0
+- freetype=2.5.5=1
+- functools32=3.2.3.2=py27_0
+- get_terminal_size=1.0.0=py27_0
+- icu=54.1=0
+- ipykernel=4.4.1=py27_0
+- ipython=5.1.0=py27_1
+- ipython_genutils=0.1.0=py27_0
+- ipywidgets=4.1.1=py27_0
+- jinja2=2.8=py27_1
+- jpeg=8d=1
+- jsonschema=2.5.1=py27_0
+- jupyter=1.0.0=py27_3
+- jupyter_client=4.3.0=py27_0
+- jupyter_console=5.0.0=py27_0
+- jupyter_core=4.1.1=py27_0
+- lcms=1.19=0
+- libpng=1.6.27=0
+- markupsafe=0.23=py27_2
+- matplotlib=2.0.0=np111py27_0
+- mistune=0.7.2=py27_1
+- mkl=11.3.3=0
+- nbconvert=4.2.0=py27_0
+- nbformat=4.0.1=py27_0
+- notebook=4.2.2=py27_0
+- numpy=1.11.1=py27_0
+- openssl=1.0.2k=1
+- pandas=0.19.2=np111py27_1
+- pandas-datareader=0.2.1=py27_0
+- path.py=8.2.1=py27_0
+- pathlib2=2.1.0=py27_0
+- pexpect=4.0.1=py27_0
+- pickleshare=0.7.3=py27_0
+- pil=1.1.7=py27_2
+- pip=9.0.1=py27_1
+- prompt_toolkit=1.0.3=py27_0
+- ptyprocess=0.5.1=py27_0
+- pyaudio=0.2.7=py27_0
+- pygments=2.1.3=py27_0
+- pyparsing=2.1.4=py27_0
+- pyqt=5.6.0=py27_2
+- pyserial=2.7=py27_0
+- python=2.7.12=1
+- python-dateutil=2.5.3=py27_0
+- python.app=1.2=py27_4
+- pytz=2016.6.1=py27_0
+- pyzmq=15.4.0=py27_0
+- qt=5.6.2=0
+- qtconsole=4.2.1=py27_0
+- readline=6.2=2
+- requests=2.12.4=py27_0
+- requests-file=1.4.1=py27_0
+- scipy=0.18.0=np111py27_0
+- setuptools=27.2.0=py27_0
+- simplegeneric=0.8.1=py27_1
+- singledispatch=3.4.0.3=py27_0
+- sip=4.18=py27_0
+- six=1.10.0=py27_0
+- sqlite=3.13.0=0
+- ssl_match_hostname=3.4.0.2=py27_1
+- subprocess32=3.2.7=py27_0
+- terminado=0.6=py27_0
+- tk=8.5.18=0
+- tornado=4.4.1=py27_0
+- traitlets=4.2.2=py27_0
+- wcwidth=0.1.7=py27_0
+- wheel=0.29.0=py27_0
+- zlib=1.2.8=3
+- pip:
+  - awscli==1.6.2
+  - backports-abc==0.4
+  - backports.shutil-get-terminal-size==1.0.0
+  - backports.ssl-match-hostname==3.5.0.1
+  - bcdoc==0.12.2
+  - boto==2.33.0
+  - botocore==0.73.0
+  - certifi==2015.4.28
+  - colorama==0.2.5
+  - docutils==0.12
+  - genson==0.1.0
+  - graphlab-create==2.1
+  - graphlab-create-license==2.1
+  - ipython-genutils==0.1.0
+  - jmespath==0.5.0
+  - jupyter-client==4.3.0
+  - jupyter-console==5.0.0
+  - jupyter-core==4.1.1
+  - multipledispatch==0.4.8
+  - prettytable==0.7.2
+  - prompt-toolkit==1.0.3
+  - psclient==2.0
+  - pyasn1==0.1.9
+  - rsa==3.1.2
+  - sseclient==0.0.8
+prefix: /Users/ithallo/anaconda/envs/mlearning
+
