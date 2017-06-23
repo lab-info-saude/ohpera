@@ -13,7 +13,8 @@ p = serial.Serial(port=pd, baudrate=230400, bytesize=serial.EIGHTBITS, parity=se
 
 #function to acquire data
 def seize(kind):
-    samples = 5*2000 # about 1 sec
+    samples = 2000 # about 1 sec
+
     x = np.zeros((samples))
     y = kind*np.ones((samples))
     i = 0
@@ -36,8 +37,8 @@ def seize(kind):
 
 
 ###BEGIN
-#a = raw_input("Start type 0, nothing")
-#k0 = seize(0)
+a = raw_input("Start type 0, nothing")
+k0 = seize(0)
 
 a = raw_input("Start type 1, open")
 k1 = seize(1)
@@ -48,7 +49,7 @@ k2 = seize(2)
 p.close()
 
 ##saving to file
-k = np.hstack((k1,k2)).T
+k = np.hstack((k0,k1,k2)).T
 
 np.save("./data/data_%s"%time.strftime("%H%M%S"), k)
 

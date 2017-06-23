@@ -25,7 +25,7 @@ while(1):
         plt.clf()
         plt.xlabel("Time(s)")
         plt.xlim(0, samples)
-        plt.ylim(-0.1, 1.2)
+        plt.ylim(0, 1.1)
 
         start = time.time()
         i = 0
