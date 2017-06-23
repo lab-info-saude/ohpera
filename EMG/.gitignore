@@ -1,0 +1,8 @@
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Database files
+.data
+.npy
+.edf
+.txt
