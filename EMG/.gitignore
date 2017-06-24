@@ -6,3 +6,7 @@
 .npy
 .edf
 .txt
+
+# Figures
+.png
+.jpg
