@@ -1,12 +1,12 @@
 # Jupyter Notebook
-.ipynb_checkpoints
+*.ipynb_checkpoints
 
 # Database files
-.data
-.npy
-.edf
-.txt
+*.data
+*.npy
+*.edf
+*.txt
 
 # Figures
-.png
-.jpg
+*.png
+*.jpg
