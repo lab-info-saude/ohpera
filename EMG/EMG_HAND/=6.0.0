@@ -1,0 +1,25 @@
+Collecting twilio
+  Downloading twilio-6.4.2-py2.py3-none-any.whl (552kB)
+Requirement already satisfied: pytz in /home/collumbus/anaconda2/envs/main/lib/python2.7/site-packages (from twilio)
+Collecting PyJWT<1.5.1,>=1.4.2 (from twilio)
+  Downloading PyJWT-1.5.0-py2.py3-none-any.whl
+Collecting pysocks (from twilio)
+  Downloading PySocks-1.6.7.tar.gz (282kB)
+Requirement already satisfied: six in /home/collumbus/anaconda2/envs/main/lib/python2.7/site-packages (from twilio)
+Collecting requests>=2.0.0 (from twilio)
+  Downloading requests-2.18.1-py2.py3-none-any.whl (88kB)
+Collecting urllib3<1.22,>=1.21.1 (from requests>=2.0.0->twilio)
+  Downloading urllib3-1.21.1-py2.py3-none-any.whl (131kB)
+Collecting idna<2.6,>=2.5 (from requests>=2.0.0->twilio)
+  Downloading idna-2.5-py2.py3-none-any.whl (55kB)
+Collecting certifi>=2017.4.17 (from requests>=2.0.0->twilio)
+  Downloading certifi-2017.4.17-py2.py3-none-any.whl (375kB)
+Collecting chardet<3.1.0,>=3.0.2 (from requests>=2.0.0->twilio)
+  Downloading chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Building wheels for collected packages: pysocks
+  Running setup.py bdist_wheel for pysocks: started
+  Running setup.py bdist_wheel for pysocks: finished with status 'done'
+  Stored in directory: /home/collumbus/.cache/pip/wheels/8a/24/d0/6c9c780e6d7fbd5cc6ffaa83b926ffc186886a5bad16078bc7
+Successfully built pysocks
+Installing collected packages: PyJWT, pysocks, urllib3, idna, certifi, chardet, requests, twilio
+Successfully installed PyJWT-1.5.0 certifi-2017.4.17 chardet-3.0.4 idna-2.5 pysocks-1.6.7 requests-2.18.1 twilio-6.4.2 urllib3-1.21.1
