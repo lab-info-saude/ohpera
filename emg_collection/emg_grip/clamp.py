@@ -1,6 +1,7 @@
 import serial
 import numpy as np
 import time
+
 pd = '/dev/cu.usbserial-A400eLxm'
 #pd = '/dev/cu.usbmodem0E216FE1'
 
@@ -13,7 +14,7 @@ p = serial.Serial(port=pd, baudrate=230400, bytesize=serial.EIGHTBITS, parity=se
 
 #function to acquire data
 def seize(kind):
-    p.flushInput()
+    #p.flushInput()
     samples = 5*2000 # about 1 sec
 
     x = np.zeros((samples))
@@ -47,10 +48,12 @@ k1 = seize(0)
 
 
 a = raw_input("Start type 1, closed midforce")
+p.flushInput()
 k2 = seize(1)
 
 print "weight"
 a = raw_input("Start type 1, closed allforce")
+p.flushInput()
 k3 = seize(2)
 
 
