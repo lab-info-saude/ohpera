@@ -13,6 +13,7 @@ p = serial.Serial(port=pd, baudrate=230400, bytesize=serial.EIGHTBITS, parity=se
 
 #function to acquire data
 def seize(kind):
+    p.flushInput()
     samples = 5*2000 # about 1 sec
 
     x = np.zeros((samples))
