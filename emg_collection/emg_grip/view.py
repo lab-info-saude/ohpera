@@ -9,7 +9,7 @@ p = serial.Serial(port=pd, baudrate=230400,
 p.flushInput()
 plt.ion()
 
-samples = 1024
+samples = 499
 x = np.arange(samples)
 y = np.zeros(samples)
 i = 0
