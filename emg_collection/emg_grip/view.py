@@ -9,7 +9,7 @@ p = serial.Serial(port=pd, baudrate=230400,
 p.flushInput()
 plt.ion()
 
-samples = 1024
+samples = 499
 x = np.arange(samples)
 y = np.zeros(samples)
 i = 0
@@ -26,6 +26,25 @@ def LP(signal, fc):
     s_kernel = int(round(samples*(fc/1904.)))
     kernel = np.hstack((np.ones(s_kernel), np.zeros(signal.shape[0]- 2*s_kernel), np.ones(s_kernel)))
     Y = np.multiply(kernel, np.fft.fft(signal))
+    return np.fft.ifft(Y).real
+
+####NOTCH FOR ALL
+def notch_all(signal, q=28, fs=1904.):
+    s_60 = int(round(signal.shape[0]*(60./fs)))
+    s_120 = int(round(signal.shape[0]*(120./fs)))
+    s_180 = int(round(signal.shape[0]*(180./fs)))
+    s_240 = int(round(signal.shape[0]*(240./fs)))
+    s_300 = int(round(signal.shape[0]*(300./fs)))
+    s_420 = int(round(signal.shape[0]*(420./fs)))
+    
+    k1 = np.hstack((np.ones(s_60 - int(q/2)), np.zeros(q), np.ones(signal.shape[0]-q - 2*s_60), np.zeros(q),np.ones(s_60 - int(q/2))))
+    k2 = np.hstack((np.ones(s_120 - int(q/2)), np.zeros(q), np.ones(signal.shape[0]-q - 2*s_120), np.zeros(q),np.ones(s_120 - int(q/2))))
+    k3 = np.hstack((np.ones(s_180 - int(q/2)), np.zeros(q), np.ones(signal.shape[0]-q - 2*s_180), np.zeros(q),np.ones(s_180 - int(q/2))))
+    k4 = np.hstack((np.ones(s_240 - int(q/2)), np.zeros(q), np.ones(signal.shape[0]-q - 2*s_240), np.zeros(q),np.ones(s_240 - int(q/2))))
+    k5 = np.hstack((np.ones(s_300 - int(q/2)), np.zeros(q), np.ones(signal.shape[0]-q - 2*s_300), np.zeros(q),np.ones(s_300 - int(q/2))))
+    k6 = np.hstack((np.ones(s_420 - int(q/2)), np.zeros(q), np.ones(signal.shape[0]-q - 2*s_420), np.zeros(q),np.ones(s_420 - int(q/2))))
+    
+    Y = np.multiply(np.multiply(np.multiply(np.multiply(np.multiply(np.multiply(k1, k2), k3), k4),k5), k6), np.fft.fft(signal))
     return np.fft.ifft(Y).real
 
 
@@ -52,7 +71,7 @@ while(1):
         
         #y = y - y.mean()
 
-        y = LP(HP(y,40), 500)
+        y = notch_all(LP(HP(y,40), 500))
     
         rms = np.sqrt(pow(y,2).mean())
         #print "RMS:",rms
