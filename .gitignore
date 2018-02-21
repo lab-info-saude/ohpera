@@ -8,6 +8,7 @@
 *.edf
 *.txt
 *.pkl
+*.csv
 
 # Figures
 *.png
