@@ -1,35 +1,35 @@
 import serial
 import matplotlib.pyplot as plt
 import numpy as np
-pd = '/dev/cu.usbserial-A400eLxm'
-#pd = '/dev/cu.usbmodem0E216FE1'
+#pd = '/dev/cu.usbserial-A400eLxm'
+pd = '/dev/cu.usbmodem0E216FE1'
 
 p = serial.Serial(port=pd, baudrate=230400,
                   bytesize=serial.EIGHTBITS, parity=serial.PARITY_NONE)
 p.flushInput()
 plt.ion()
 
-samples = 499
+samples = 2048
 x = np.arange(samples)
 y = np.zeros(samples)
 i = 0
 level = np.ones(samples)
 
 def HP(signal, fc):
-    s_kernel = int(round(samples*(fc/1904.)))
+    s_kernel = int(round(samples*(fc/2500.)))
     kernel = np.hstack((np.zeros(s_kernel),np.ones(signal.shape[0]- 2*s_kernel), np.zeros(s_kernel)))
     Y = np.multiply(kernel, np.fft.fft(signal))
     return np.fft.ifft(Y).real
 
 
 def LP(signal, fc):
-    s_kernel = int(round(samples*(fc/1904.)))
+    s_kernel = int(round(samples*(fc/2500.)))
     kernel = np.hstack((np.ones(s_kernel), np.zeros(signal.shape[0]- 2*s_kernel), np.ones(s_kernel)))
     Y = np.multiply(kernel, np.fft.fft(signal))
     return np.fft.ifft(Y).real
 
 ####NOTCH FOR ALL
-def notch_all(signal, q=28, fs=1904.):
+def notch_all(signal, q=28, fs=2500.):
     s_60 = int(round(signal.shape[0]*(60./fs)))
     s_120 = int(round(signal.shape[0]*(120./fs)))
     s_180 = int(round(signal.shape[0]*(180./fs)))
@@ -53,25 +53,25 @@ while(1):
         plt.clf()
         plt.xlabel("Time(s)")
         plt.xlim(0, samples)
-        plt.ylim(-0.6, 0.6)
+        plt.ylim(-0.5, 0.5)
         i = 0
         while i < samples:
-            v_control = p.read() #signal normally is not 0, if 0 go to next
-            if(ord(v_control) == 0):
-                value1 = p.read()
-                value2 = p.read()
+            #v_control = p.read() #signal normally is not 0, if 0 go to next
+                #if(ord(v_control) == 0):
+            value1 = p.read()
+            value2 = p.read()
 
-                try:
-                    v = ord(value1[0])*256 + ord(value2[0])
-                    y[i] = float(v)*(1.1/1023.0)
-                    x[i] = i
-                    i = i +1
-                except IndexError:
-                    pass
+            try:
+                v = ord(value1[0])*256 + ord(value2[0])
+                y[i] = float(v)*(3.6/4095.)#(1.1/1023.0)
+                x[i] = i
+                i = i +1
+            except IndexError:
+                pass
         
         #y = y - y.mean()
 
-        y = notch_all(LP(HP(y,40), 500))
+        y = notch_all(LP(HP(y,20), 500))
     
         rms = np.sqrt(pow(y,2).mean())
         #print "RMS:",rms

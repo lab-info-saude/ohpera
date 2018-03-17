@@ -1,4 +1,4 @@
-import serial
+ import serial
 import matplotlib.pyplot as plt
 
 import numpy as np
